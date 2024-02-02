@@ -1,10 +1,10 @@
 errors = []
-
+'''
 try:
     import bs4
 except ModuleNotFoundError as e:
     errors.append(str(e))
-
+'''
 try:
     import requests
 except ModuleNotFoundError as e:
