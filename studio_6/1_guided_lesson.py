@@ -17,7 +17,11 @@ student_2_expected_graduation_year = "2025"
 
 # TODO: Create a new student student_3 following the same format
 
-
+student_3_id = 12345678
+student_3_first_name = "Fname"
+student_3_last_name = "Lname"
+student_3_major = "major"
+student_3_expected_graduation_year = "2024"
 
 
 
@@ -35,14 +39,28 @@ student_2_expected_graduation_year = "2025"
 # Basic structure of a class
 class Student:
     # TODO: Let's build this class!
-    def __init__(self):
-        pass
+    def __init__(self, id, first_name, last_name, major, expected_graduation_year):
+        # create student class with id, first_name, last_name, major, expected_graduation_year
+        self._id = id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.major = major
+        self.expected_graduation_year = expected_graduation_year
+
+    @property
+    def id(self):
+        return self._id
+    
+    def get_last_four(self):
+        return str(self._id)[-4:]
 
 
 
 # TODO: Let's recreate our 3 students as objects of our new class!
 
-
+student_1 = Student(18584831, "Daniel", "White", "Computer Science", "2026")
+student_2 = Student(18582185, "Jennie", "Kim", "Chemistry", "2025")
+student_3 = Student(12345678, "Fname", "Lname", "major", "2024")
 
 
 
@@ -79,10 +97,18 @@ class Student:
     
 # TODO: Create a child class called GradStudent which inherits from the Student class, with the additional property of "specialization"
 
+class GradStudent(Student):
+    def __init__(self, id, first_name, last_name, major, expected_graduation_year, specialization):
+        super().__init__(id, first_name, last_name, major, expected_graduation_year)
+        self.specialization = specialization
+    
+    def print_degree_title(self):
+        print(f"Master of {self.major} with a specialization in {self.specialization}")
 
 # create a new student_4 which uses GradStudent instead.
 # this person's major is Computer Science and their Specialization is Artifical Intelligence
-    
+
+student_4 = GradStudent(23343546, "Fname2", "Lname2", "Computer Science", "2025", "Artificial Intelligence")
 
 # OOP Property - Polymorphism
 # refers to methods/functions/operators with the same name that can be executed on many objects or classes.
@@ -92,13 +118,17 @@ class Student:
     
 # What happens if we run student_4.print_degree_title?
 # Yes, it will print "Bachelor of Computer Science".
-    
+
+student_4.print_degree_title()
+
 # This is not what we want though, because it should print Master of Computer Science for our graduate school student. 
     
 # We can override our parent method in the child class by creating a function with the exact same name: print_degree_title
     
 # TODO: Add the print_degree_title to the Graduate class, have it print "Master of {major} with a specialization in {specialization}."
-    
+
+#oh i already did that
+
 # Test your code and make sure print_degree_title prints the master's student as intended.
     
 # This is the end of the OOP lesson. Look at part_2.py for the follow up to this lesson. 
